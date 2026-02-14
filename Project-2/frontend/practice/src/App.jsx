@@ -5,7 +5,7 @@ const App = () => {
 const [first, setfirst] = useState([])
 
   function fetch(){
-      axios.get('https://backend-3gg8.onrender.com//fatch')
+      axios.get('http://localhost:3000/fatch')
       .then(res=>{
         setfirst(res.data.note)
       })
@@ -16,7 +16,7 @@ const [first, setfirst] = useState([])
 
    const {title,description} = e.target.elements
    console.log(title.value,description.value)
-   axios.post('https://backend-3gg8.onrender.com//post',{
+   axios.post('http://localhost:3000/post',{
     title : title.value,
     description:description.value
    }).then(res=>{
@@ -26,7 +26,7 @@ const [first, setfirst] = useState([])
   }
 
 function deletenote(id){
-  axios.delete('https://backend-3gg8.onrender.com//delete/'+id)
+  axios.delete('http://localhost:3000/delete/'+id)
   .then(res=>{
     console.log(res.data)
     fetch()
