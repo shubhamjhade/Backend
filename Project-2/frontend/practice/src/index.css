@@ -16,3 +16,11 @@ width: 100%;
   gap: 10px;
   border: 8px solid rgb(96, 196, 138);
 }
+
+.formcreated{
+  display: flex;
+  gap: 5px ;
+  background-color: chartreuse;
+  padding: 20px;
+  color: black;
+}

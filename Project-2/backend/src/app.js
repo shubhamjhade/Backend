@@ -2,10 +2,11 @@ const express = require('express')
 const modelnote = require('./models/note.model')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 app.use(express.json())
 app.use(cors())
-
-app.get('/',async(req,res)=>{
+app.use(express.static('./public'))
+app.get('/fatch',async(req,res)=>{
   const note = await modelnote.find()
 
   res.status(200).json({
@@ -14,7 +15,7 @@ app.get('/',async(req,res)=>{
   })
 })
 
-app.post('/', async(req,res)=>{
+app.post('/post', async(req,res)=>{
 const {title,description} = req.body
 
 const note = await modelnote.create({
